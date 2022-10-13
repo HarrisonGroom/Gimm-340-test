@@ -5,7 +5,8 @@
  * */
 const Alexa = require('ask-sdk-core');
 const facts = require('./pricing')
-
+const express = require('express');
+const{ ExpressAdapter } = require('ask-sdk-expresss-adapter');
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
