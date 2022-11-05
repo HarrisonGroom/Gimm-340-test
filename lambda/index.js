@@ -7,6 +7,13 @@ const Alexa = require('ask-sdk-core');
 const facts = require('./pricing')
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
+const port = 3000 //Default port to http server
+const connection = mysql.createConnection({
+    host: "bsu-gimm260-fall-2021.cwtgn0g8zxfm.us-west-2.rds.amazonaws.com",
+    user: "HarrisonGroom",
+    password: "UKxtrZLYaEJInUoYMkls4Shvca9S7J5qeA3",
+    database: 'HarrisonGroom'
+});
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
