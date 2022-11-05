@@ -19,7 +19,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, find out about todays parking prices?';
+        const speakOutput = 'Welcome to GIMM Garage! What can I help you with today?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -50,7 +50,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = 'What can I help you with today? You can ask me to find parking, access pricing, or access on campus events.';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -66,7 +66,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Goodbye! Happy Parking!';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
