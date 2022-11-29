@@ -19,7 +19,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome to GIMM Garage! What can I help you with today?';
+        const speakOutput = 'Welcome to GIMM Garage! Do you need help finding parking or information on prices/fees?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)

@@ -1,50 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;700&family=Roboto+Mono:wght@300;500;700&display=swap');
 
 body{
-    background-color: white;
+    background-color: rgb(0, 51, 160);
     font-family: 'Roboto', sans-serif;
-    color: black;
+    color: white;
 }
 
-.blue-background {
-    background-color: rgb(0, 51, 160);
-    color: white;
+.white-background {
+    background-color: white;
+    color: black;
 }
 
 .center {
     text-align: center;
 }
 
-.shift-text {
-    padding-top: 25px;
+.space {
+    padding-top: 100px;
 }
 
-.img-responsive {
+hr {
+    background-color: orange;
+    height: 15px;
     width: 100%;
 }
 
-.container-text-overlay {
-    position: relative;
+h1{
+    font-size: 100px;
+    font-family: 'Roboto';
     text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
     color: white;
 }
 
-.img-text-center {
-    background-color: rgba(255, 255, 255, 0.349);
-    color: black;
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    height: 100%;
-    width: 100%
-}
-
-h1{
-    font-size: large;
-    font-family: 'Roboto';
-}
-
 h2{
-    font-size: medium;
+    font-size: 70px;
     font-family: 'Roboto';
+    color: rgb(90, 112, 160)
 }
