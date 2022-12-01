@@ -4,7 +4,14 @@
  * session persistence, api calls, and more.
  * */
 const Alexa = require('ask-sdk-core');
-const facts = require('./pricing')
+const facts = require('./pricing');
+const parkingOptions = {
+    'albertsons stadium': ['east commuter', 'east reserve'],
+    'student union building' : ['lincoln avenue garage', 'central reserve', 'east reserve'],
+    'albertsons library' : ['central reserve', 'hourly parking at plaza west', 'hourly parking at plaza east'],
+    'college of business and economics' : ['brady street garage', 'west reserve'],
+    'morrison center' : ['west reserve']
+}
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
 const port = 3000 //Default port to http server
@@ -47,14 +54,15 @@ const parkingpriceIntentHandler = {
 const GimmParkingIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GimmParkingIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'parkinglocationintent';
     },
     handle(handlerInput) {
-        //const speakOutput = 'Changed for testing';
-        const speakOutput = location;
+        const speakOutput = 'Changed for testing';
+        const lot = Alexa.getSlotValue(handlerInput.requestEnvelope, 'building');
+        const sentLot = parkingOptions[lot][Math.floor(Math.random() * parkingOptions[lot].length)];
 
         return handlerInput.responseBuilder
-            .speak(speakOutput)
+            .speak('You should park at ' + sentLot)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
