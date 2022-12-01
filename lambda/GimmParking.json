@@ -25,6 +25,24 @@
                     ]
                 },
                 {
+                    "name": "parkinglocationintent",
+                    "slots": [
+                        {
+                            "name": "building",
+                            "type": "building_location",
+                            "samples": [
+                                "I need the {building}",
+                                "I need to park by the {building}",
+                                "{building}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Help me park",
+                        "I need to park"
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 },
