@@ -43,6 +43,111 @@
                     ]
                 },
                 {
+                    "name": "building_location",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "albertsons stadium"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kinesiology annex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "extramile arena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bookstore"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "student union building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hemingway center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "liberal arts building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "albertsons library"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "admin building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "riverfront hall"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mathematics building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "campus schoolhouse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "simplot micron advising and success hub"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interactive learning center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "multipurpose building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "education building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "science building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "morrison center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "micron business and economics building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "center for the visual arts"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 },
