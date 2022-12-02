@@ -48,6 +48,10 @@ const parkingpriceIntentHandler = {
         connection.query(insertSql, (error) =>{
             if(error){
                 speakOutput = 'Something wrong happened with the server.'
+                return handlerInput.responseBuilder
+                .speak(speakOutput)
+                //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+                .getResponse();
             }
             else {
                 speakOutput = 'Sql connection successful. Parking is free!'
