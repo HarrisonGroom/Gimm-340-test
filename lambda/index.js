@@ -42,8 +42,14 @@ const parkingpriceIntentHandler = {
     },
     handle(handlerInput) {
        //const speakOutput = 'Hello World!';
-        const speakOutput = facts[Math.floor(Math.random() * facts.length)];
+        let speakOutput = facts[Math.floor(Math.random() * facts.length)];
+        const insertSql = `INSERT INTO SmartParking(intentName) VALUES(parkingpriceIntent)`
         
+        connection.query(insertSql, (error) =>{
+            if(error){
+                speakOutput = 'Something wrong happened with the server.'
+            }
+        })
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
