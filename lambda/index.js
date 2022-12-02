@@ -49,6 +49,9 @@ const parkingpriceIntentHandler = {
             if(error){
                 speakOutput = 'Something wrong happened with the server.'
             }
+            else {
+                speakOutput = 'Sql connection successful. Parking is free!'
+            }
         })
         return handlerInput.responseBuilder
             .speak(speakOutput)
