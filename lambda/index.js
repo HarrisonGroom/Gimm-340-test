@@ -43,7 +43,7 @@ const parkingpriceIntentHandler = {
     handle(handlerInput) {
        //const speakOutput = 'Hello World!';
         let speakOutput = facts[Math.floor(Math.random() * facts.length)];
-        const insertSql = `INSERT INTO SmartParking(intentName) VALUES(parkingpriceIntent)`
+        const insertSql = `INSERT INTO SmartParking(intentName) VALUES('parkingpriceIntent')`
         
         connection.query(insertSql, (error) =>{
             if(error){
