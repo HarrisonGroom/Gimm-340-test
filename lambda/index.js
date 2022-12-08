@@ -249,7 +249,7 @@ const skill = Alexa.SkillBuilders.custom()
         parkingpriceIntentHandler,
         GimmParkingIntentHandler,
         CheapestParkingIntentHandler,
-
+        RecordParkingIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
