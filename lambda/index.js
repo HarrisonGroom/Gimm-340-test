@@ -66,10 +66,19 @@ const GimmParkingIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'parkinglocationintent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const speakOutput = 'Changed for testing';
         const lot = Alexa.getSlotValue(handlerInput.requestEnvelope, 'building');
         const sentLot = parkingOptions[lot][Math.floor(Math.random() * parkingOptions[lot].length)];
+        const insertSql = `INSERT INTO SmartParking(intentName) VALUES('GimmParkingIntent')`
+        
+        connection.query(insertSql, (error) =>{
+            if(error){
+                speakOutput = 'Something wrong happened with the server.'
+                
+            }
+            
+        })
 
         return handlerInput.responseBuilder
             .speak('You should park at ' + sentLot)
