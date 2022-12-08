@@ -67,7 +67,7 @@ const GimmParkingIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'parkinglocationintent';
     },
     async handle(handlerInput) {
-        const speakOutput = 'Changed for testing';
+        let speakOutput = 'Changed for testing';
         const lot = Alexa.getSlotValue(handlerInput.requestEnvelope, 'building');
         const sentLot = parkingOptions[lot][Math.floor(Math.random() * parkingOptions[lot].length)];
         const insertSql = `INSERT INTO SmartParking(intentName) VALUES('GimmParkingIntent')`
@@ -86,6 +86,55 @@ const GimmParkingIntentHandler = {
             .getResponse();
     }
 };
+
+const CheapestParkingIntentHandler = {
+    canHandle(handlerInput){
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheapestParkingIntent';
+    },
+
+    async handle(handlerInput) {
+        let speakOutput = 'It looks like parking is free at Lincoln Garage today. You should check for a parking spot there first.';
+        const insertSql = `INSERT INTO SmartParking(intentName) VALUES('CheapestParkingIntent')`
+        
+        connection.query(insertSql, (error) =>{
+            if(error){
+                speakOutput = 'Something wrong happened with the server.'
+                
+            }
+            
+        })
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+}
+
+const RecordParkingIntentHandler = {
+    canHandle(handlerInput){
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RecordParkingIntent';
+    },
+
+    async handle(handlerInput) {
+        const spot = Alexa.getSlotValue(handlerInput.requestEnvelope, 'ParkingSpot');
+        const insertSql = `INSERT INTO SmartParking(intentName) VALUES('RecordParkingIntent')`
+        let speakOutput = 'Got it. I have recorded your parking spot as ' + spot;
+        
+        connection.query(insertSql, (error) =>{
+            if(error){
+                speakOutput = 'Something wrong happened with the server.'
+                
+            }
+            
+        })
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+}
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -199,6 +248,8 @@ const skill = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         parkingpriceIntentHandler,
         GimmParkingIntentHandler,
+        CheapestParkingIntentHandler,
+
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
