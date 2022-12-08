@@ -41,11 +41,18 @@ const parkingpriceIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'parkingpriceIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
        //const speakOutput = 'Hello World!';
         let speakOutput = facts[Math.floor(Math.random() * facts.length)];
         const insertSql = `INSERT INTO SmartParking(intentName) VALUES('parkingpriceIntent')`
         
+        connection.query(insertSql, (error) =>{
+            if(error){
+                speakOutput = 'Something wrong happened with the server.'
+                
+            }
+            
+        })
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
