@@ -42,7 +42,7 @@
                         "I need to park"
                     ]
                 },
-                {{
+                {
                     "interactionModel": {
                         "languageModel": {
                             "invocationName": "gimm parking",
@@ -247,7 +247,8 @@
                             }
                         ]
                     }
-                }
+                },
+                {
                     "name": "building_location",
                     "values": [
                         {
