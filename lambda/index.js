@@ -12,10 +12,12 @@ const parkingOptions = {
     'college of business and economics' : ['brady street garage', 'west reserve'],
     'morrison center' : ['west reserve']
 }
+const parking = require('../WebPage/ParkingData')
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
 const port = 3000 //Default port to http server
 const mysql = require('mysql2');
+const { response } = require('express');
 const connection = mysql.createConnection({
     host: "bsu-gimm260-fall-2021.cwtgn0g8zxfm.us-west-2.rds.amazonaws.com",
     user: "HarrisonGroom",
@@ -261,6 +263,26 @@ const skill = Alexa.SkillBuilders.custom()
     .create();
 
     const adapter = new ExpressAdapter(skill, false, false);
+    app.use(express.static('../WebPage'));
+
+    app.get('/', (request, response) => {
+        response.sendFile('index.html', {root: '../WebPage'});
+    });
+    app.get('/ParkingData/', async (request, response) =>{
+        let result = [];
+        try{
+            results = await parking.getAllData(request.query);
+        }catch (error){
+            console.log(error);
+
+            return respomse
+                .status(500)
+                .json({message: 'bad thing happened'});
+        }
+        response
+        .json ({data: results});
+    });
+
     const app = express();
 
     app.post('/', adapter.getRequestHandlers());

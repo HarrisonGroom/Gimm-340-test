@@ -83,8 +83,61 @@
             </div>
         </div>
     </div>
-
-
+<div id="parkingdata" >
+     
+</div>
+<script>
+    function loadData() {
+        console.log("yes");
+        const isEmpty = (obj) => Object.keys(obj).length === 0;
+        const getParameters = {};
+  
+  
+        //Settings for FETCH API request
+        let fetchSettings = {
+          method: 'GET',
+        };
+  
+        //Send FETCH API request
+        fetch("https://www.harrisongroom.net/ParkingData/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
+          .then((response) => {
+            return new Promise((resolve) => response.json()
+              .then((json) => resolve({
+                status: response.status,
+                json,
+              })
+              ));
+          })
+          //Logic to display errors on form 
+          .then(({ status, json }) => {
+            if (status === 200) {
+             // let displayTable = '<table>' +
+               // '<thead>' +
+               // '<tr>' +
+               // '<th>Intent</th>' +
+                //'<th>Time</th>' +
+                //'</tr>' +
+               // '</thead>' +
+               // '<tbody>';
+             // if (typeof json.data !== 'undefined') {
+               // for (row of json.data) {
+                //  displayTable += '<tr>' +
+                 //   '<td>' + row.intent + '</td>' +
+                 //   '<td>' + row.time + '</td>' +
+                 //   '</tr>';
+              //  }
+             // }
+            //  displayTable += '</tbody></table>';
+            console.log("good");
+              document.getElementById('parkingdata').innerHTML = json.data;
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        return;
+      }              
+</script>
 
 
 
