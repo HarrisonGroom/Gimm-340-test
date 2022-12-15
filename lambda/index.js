@@ -8,7 +8,7 @@ const parkingOptions = {
     'college of business and economics' : ['brady street garage', 'west reserve'],
     'morrison center' : ['west reserve']
 }
-const parking = require('../WebPage/ParkingData');
+const parking = require('../WebPage/model');
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
 const port = 3000 //Default port to http server
@@ -259,6 +259,7 @@ const skill = Alexa.SkillBuilders.custom()
     .create();
 
     const adapter = new ExpressAdapter(skill, false, false);
+    const app = express();
     app.use(express.static('../WebPage'));
 
     app.get('/', (request, response) => {
@@ -279,7 +280,7 @@ const skill = Alexa.SkillBuilders.custom()
         .json ({data: results});
     });
 
-    const app = express();
+
 
     app.post('/', adapter.getRequestHandlers());
     app.listen(3000);
