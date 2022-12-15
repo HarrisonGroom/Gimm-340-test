@@ -8,7 +8,7 @@ const parkingOptions = {
     'college of business and economics' : ['brady street garage', 'west reserve'],
     'morrison center' : ['west reserve']
 }
-const parking = require('../WebPage/model');
+const parking = require('../WebPage/model/ParkingData');
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
 const port = 3000 //Default port to http server
