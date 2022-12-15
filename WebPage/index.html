@@ -115,25 +115,25 @@
           //Logic to display errors on form 
           .then(({ status, json }) => {
             if (status === 200) {
-             // let displayTable = '<table>' +
-               // '<thead>' +
-               // '<tr>' +
-               // '<th>Intent</th>' +
-                //'<th>Time</th>' +
-                //'</tr>' +
-               // '</thead>' +
-               // '<tbody>';
-             // if (typeof json.data !== 'undefined') {
-               // for (row of json.data) {
-                //  displayTable += '<tr>' +
-                 //   '<td>' + row.intent + '</td>' +
-                 //   '<td>' + row.time + '</td>' +
-                 //   '</tr>';
-              //  }
-             // }
-            //  displayTable += '</tbody></table>';
+              let displayTable = '<table>' +
+                '<thead>' +
+               '<tr>' +
+               '<th>Intent</th>' +
+                '<th>Time</th>' +
+                '</tr>' +
+                '</thead>' +
+                '<tbody>';
+              if (typeof json.data !== 'undefined') {
+                for (row of json.data) {
+                 displayTable += '<tr>' +
+                   '<td>' + row.id + '</td>' +
+                   '<td>' + row.intentName + '</td>' +
+                   '</tr>';
+                }
+              }
+              displayTable += '</tbody></table>';
             console.log("good");
-              document.getElementById('parkingdata').innerHTML = json.data;
+              document.getElementById('parkingdata').innerHTML = displayTable;
             }
           })
           .catch(error => {
