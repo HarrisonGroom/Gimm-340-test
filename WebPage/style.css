@@ -8,7 +8,7 @@ body{
 
 .white-background {
     background-color: white;
-    color: black;
+    color: white;
 }
 
 .center {
@@ -31,7 +31,7 @@ h1{
     text-align: center;
     padding-top: 50px;
     padding-bottom: 100px;
-    color: white;
+    color: black;
 }
 
 h2{
@@ -58,7 +58,7 @@ th {
 
 td {
     padding: 5px;
-    background-color: white;
+    background-color: black;
     font-size: large;
 }
 
