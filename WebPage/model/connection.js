@@ -7,7 +7,7 @@ const connection = await mysql.createConnection({
     password: "UKxtrZLYaEJInUoYMkls4Shvca9S7J5qeA3",
     database: 'HarrisonGroom'
 });
-const [results,] = await connection.excute(sql, params);
+const [results,] = await connection.execute(sql, params);
 return results;
 }
 
