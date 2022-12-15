@@ -132,7 +132,7 @@ const RecordParkingIntentHandler = {
             .reprompt(speakOutput)
             .getResponse();
     }
-}
+};
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
