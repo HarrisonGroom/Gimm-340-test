@@ -103,7 +103,7 @@
         };
   
         //Send FETCH API request
-        fetch("https://www.harrisongroom.net/ParkingData/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
+        fetch("https://www.harrisongroom.net/model/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
           .then((response) => {
             return new Promise((resolve) => response.json()
               .then((json) => resolve({

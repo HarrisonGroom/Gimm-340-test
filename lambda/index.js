@@ -7,7 +7,7 @@ const parkingOptions = {
     'albertsons library' : ['central reserve', 'hourly parking at plaza west', 'hourly parking at plaza east'],
     'college of business and economics' : ['brady street garage', 'west reserve'],
     'morrison center' : ['west reserve']
-}
+};
 const parking = require('../WebPage/model/ParkingData');
 const express = require('express');
 const{ ExpressAdapter } = require('ask-sdk-express-adapter');
@@ -107,7 +107,7 @@ const CheapestParkingIntentHandler = {
             .reprompt(speakOutput)
             .getResponse();
     }
-}
+};
 
 const RecordParkingIntentHandler = {
     canHandle(handlerInput){
