@@ -39,3 +39,26 @@ h2{
     font-family: 'Roboto';
     color: rgb(90, 112, 160)
 }
+table {
+    margin: 5px;
+    width: 30%;
+    border-radius: 5px;
+    background-color: blue;
+    box-shadow: 3px 3px 3px lightgray;
+    margin-bottom: 25px;
+}
+
+th {
+    padding: 5px;
+    color: black;
+    background-color: steelblue;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+td {
+    padding: 5px;
+    background-color: white;
+    font-size: large;
+}
+
