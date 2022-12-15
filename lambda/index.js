@@ -263,16 +263,16 @@ const skill = Alexa.SkillBuilders.custom()
     app.use(express.static('../WebPage'));
 
     app.get('/', (request, response) => {
-        response.sendFile('index.html', {root: '../WebPage'});
+        response.sendFile('index.html', {root: '../WebPage/'});
     });
     app.get('/ParkingData/', async (request, response) =>{
-        let result = [];
+        let result = {};
         try{
             results = await parking.getAllData(request.query);
         }catch (error){
             console.log(error);
 
-            return respomse
+            return response
                 .status(500)
                 .json({message: 'bad thing happened'});
         }
